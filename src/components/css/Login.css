@@ -1,0 +1,116 @@
+
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #16171d;
+    padding-top: 60px;
+}
+
+.box {
+    background-color: black;
+    padding: 30px;
+    border-radius: 12px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    margin-top: 0px;
+}
+.main h1{
+    font-family: "rac",sans-serif;
+    color: white;
+}
+.box label{
+    font-family: "rac",sans-serif;
+    color: whitesmoke;
+}
+.box input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    background-color: #2a2d36;
+    color: grey;
+    font-size: 14px;
+    font-family: "rac",sans-serif;
+}
+
+/* Placeholder color */
+.box input::placeholder {
+    color: #aaa;
+}
+
+/* Button */
+.box button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "rac",sans-serif;
+}
+
+/* Hover effect */
+.box button:hover {
+    background-color: rgb(245, 10, 10);
+    transform: scale(1);
+    color: black;
+}
+.box p{
+    font-family: "rac";
+    font-size: 10px;
+    text-align: center;
+}
+.box a{
+    color:black ;
+    text-decoration: underline;
+    letter-spacing: 0px;
+}
+.box button{
+    background-color: skyblue;
+}
+h3{
+    font-family: "rac";
+    text-align: center;
+    color: wheat;
+}
+.auth{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth button{
+    width: 230px;
+    margin-top: 15px;
+}
+/* Mobile responsive */
+@media (max-width: 400px) {
+    .box {
+        width: 90%;
+        padding: 20px;
+        margin-bottom:80px;
+    }
+}
+/* Mobile responsive */
+@media (max-width: 900px) {
+    .box {
+        width: 90%;
+        padding: 20px;
+        margin-bottom:60px;
+    }
+}
+

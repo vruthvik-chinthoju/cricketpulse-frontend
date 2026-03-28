@@ -1,0 +1,121 @@
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+
+nav {
+    padding: 15px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* KEY */
+}
+
+
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo .lo {
+    height: 18px;
+}
+
+
+.pages {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-family: "rac", sans-serif;
+}
+
+
+.pages a {
+    color: #ef4444;
+    text-decoration: none;
+}
+
+.pages a:hover {
+    color: rgb(228, 94, 94);
+    text-decoration: underline;
+}
+
+.stumps {
+    width: 35px;
+}
+
+.pages a {
+    color:  #ef4444;;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.pages a:hover{
+    color: rgb(228, 94, 94);
+    text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+.stumps{
+    width: 40px;
+}
+
+.pages a {
+  color: #ddd;
+}
+.pages a:hover {
+  color: #00ff88;
+}
+
+@media (max-width: 768px) {
+    .logo img{
+        height: 15px;
+    }
+    nav{
+        padding: 15px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .pages {
+        position: absolute;
+        top: 55px;
+        right: 0;
+        background-color: black;
+        flex-direction: column;
+        width: 370px;
+        padding: 20px;
+        display: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .pages:hover{
+        color: rgb(211, 38, 38);
+    }
+
+    .pages.show {
+        display: flex;
+    }
+    .pages a, 
+    .pages button {
+        padding: 10px ;
+        text-align: left;
+    }
+    .pages{
+        right: 0;
+    }
+}

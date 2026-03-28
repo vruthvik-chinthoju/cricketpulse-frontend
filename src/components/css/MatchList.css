@@ -1,0 +1,201 @@
+
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+
+.match{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 0;
+    background: #0f172a ;background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+}
+.match h2{
+    font-family: "rac";
+    font-size: 42px;
+    letter-spacing: 3px;
+    color: #ef4444;
+    /* text-shadow: 0 0 15px rgba(239,68,68,0.6); */
+    
+}
+.all {
+    width: 50%;
+    background: rgba(30, 41, 59, 0.9);
+    border-radius: 25px;
+    padding: 30px;
+    /* backdrop-filter: blur(10px); */
+    font-family: "rac";
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+}
+
+
+
+.all:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+}
+
+b{
+    font-family:Arial, Helvetica, sans-serif;
+    /* font-family: 20px; */
+}
+a{
+    color:white;
+    text-decoration: dashed;
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid black;
+    font-family: "rac";
+    background-color:turquoise;
+    cursor: pointer;
+}
+button:hover{
+    background-color:turquoise;
+    transform: scale(1.1);
+    
+}
+.buttons {
+    display: flex;
+    flex-direction: row !important;   
+    gap: 15px;
+    justify-content: center;
+}
+.predict{
+    color: greenyellow;
+    font-size: 20px;
+}
+
+.team span {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;          
+}
+
+.team {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    transition: 0.3s;
+}
+.team:hover {
+    transform: scale(1.08);
+}
+
+.vs {
+    font-size: 22px;
+    font-weight: bold;
+    color: #facc15;
+}
+
+.team img{
+    height: 85px;
+    width: 85px;
+    object-fit: contain;
+}
+
+h2 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.team span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.predict {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4ade80;
+}
+
+.predict.closed {
+    color: #ef4444;
+}
+
+.countdown b{
+    font-size: 18px;
+    color: rgb(236, 89, 89);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+}
+p {
+    color: grey;   /* brighter */
+    font-size: 17px;
+    letter-spacing: 0.8px;
+}
+.countdown b{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+button {
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #22c55e, #16a34a);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: scale(1.1);
+
+}
+
+.all {
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.team span {
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.all .predict{
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+.team img:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width:800px){
+    .all{
+        width: 90%;
+    }
+    button{
+        padding: 5px;
+        border-radius: 5px;
+    }
+    .countdown b{
+        font-size: 15px;
+    }
+}

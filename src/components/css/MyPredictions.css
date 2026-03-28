@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+.mypredictions {
+  padding: 20px;
+  min-height: 100vh;
+  padding-top: 30px;
+}
+
+.mypredictions h2{
+    font-family: "rac";
+    text-align: center;
+    padding-bottom: 30px;
+    color: #facc15;
+}
+.prediction-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  color: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+  /* background-color: red; */
+}
+
+.prediction-row:hover {
+  transform: scale(1.02);
+  background: #2a2a2a;
+}
+
+.match-info {
+  flex: 2;
+ font-family: rac;
+}
+
+.match-no {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.teams {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.prediction-info {
+  flex: 1;
+  text-align: center;
+  font-family: "rac";
+  font-size: 15px;
+}
+.prediction-info .predict{
+    font-size: 15px;
+}
+.points {
+  flex: 1;
+  text-align: right;
+  color: #22c55e;
+  font-size: 18px;
+}

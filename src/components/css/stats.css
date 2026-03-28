@@ -1,0 +1,136 @@
+@font-face {
+  font-family:"rac";
+  src:url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+
+.stats-box h2{
+  text-align:center;
+  font-family:"rac";
+  color:tomato;
+  padding-top:20px;
+}
+
+.year-buttons{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:20px;
+}
+
+.team-card{
+  background:#111;
+  margin:20px;
+  padding:15px;
+  border-radius:10px;
+}
+
+.team-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.team-header img{
+  width:40px;
+}
+
+.players-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+
+.player-card{
+  background:#222;
+  padding:10px;
+  border-radius:8px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.player-card img{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+}
+
+
+/* MODAL */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal-content{
+  background:#111;
+  width:340px;
+  max-height:80vh;
+  overflow-y:auto;
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  position:relative;
+}
+
+.modal-content img{
+  width:100px;
+  border-radius:50%;
+}
+
+.close-btn{
+  position:absolute;
+  right:10px;
+  top:10px;
+  cursor:pointer;
+}
+
+
+/* PLAYER STATS */
+
+.stats-section{
+  margin-top:20px;
+}
+
+.stat-block{
+  background:#1a1a1a;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+.stat-block h4{
+  color:tomato;
+  font-family:"rac";
+  margin-bottom:6px;
+}
+
+.stat-block p{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin:3px 0;
+}
+.stat-block h4{
+  font-family: 'Courier New', Courier, monospace;
+}
+.year-buttons button{
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0px;
+}
+.year-buttons label{
+  color: aqua;
+  font-family: "rac";
+}
+
+.stats-box b{
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0px;
+  font-size: 30px;
+}

@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+.leaderboard {
+  padding: 20px;
+  color: white;
+  font-family: "rac";
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.leaderboard h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color:#facc15;;
+}
+.acc{
+    color: skyblue;
+    font-size: 15px ;
+}
+
+.ra{
+    font-size: 15px;
+    color: Red;
+}
+.user{
+    color: grey;
+    font-size: 15px;
+    margin-left: 25px;
+}
+.leaderboard-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e1e1e;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.leaderboard-row:hover {
+  background: #2a2a2a;
+  transform: scale(1.02);
+}
+
+.rank {
+  font-size: 18px;
+  font-weight: bold;
+  width: 60px;
+}
+
+.username {
+  flex: 2;
+  font-size: 18px;
+
+}
+/* }
+ */
+
+.points {
+  flex: 1;
+  text-align: center;
+  color: #22c55e;
+  font-weight: bold;
+  margin-right:30px;
+}
+
+.accuracy {
+  flex: 1;
+  text-align: right;
+  color: #38bdf8;
+}
