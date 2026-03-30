@@ -7,7 +7,7 @@ function Leaderboard() {
   useEffect(() => {
     const token = localStorage.getItem("access");
 
-    fetch("http://127.0.0.1:8000/api/leaderboard/", {
+    fetch("https://cricketpulse-backend.onrender.com/api/leaderboard/", {
       headers: {
         "Authorization": `Bearer ${token}`
       }

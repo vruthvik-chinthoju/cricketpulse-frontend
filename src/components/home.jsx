@@ -23,8 +23,8 @@ export default function Home() {
                     <p>Predict IPL Matches. Compete Globally. Dominate the Game.</p>
 
                     <div className="hero-buttons">
-                        <button className="primary-btn">Start Predicting</button>
-                        <button className="secondary-btn">View Leaderboard</button>
+                        <button className="primary-btn"><Link to="/matches">Start Predicting</Link></button>
+                        <button className="secondary-btn"><Link to="/leaderboard">View Leaderboard</Link></button>
                     </div>
                 </div>
             </section>

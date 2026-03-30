@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .home {
   color: white;
@@ -404,6 +405,42 @@ b {
 .footer-section h3{
   color:darkcyan;
 }
+.step,
+.card,
+.abt,
+.leader,
+.predict {
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.step:hover,
+.card:hover,
+.abt:hover,
+.leader:hover {
+  transform: translateY(-10px) scale(1.03) rotateX(4deg);
+}
+
+.robot .ai-box{
+  width: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes float{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-15px)}
+  100%{transform:translateY(0px)}
+}
+.primary-btn a{
+  color: black;
+}
+.ai-box a{
+  color: black;
+  
+}
+
 
 @media (max-width: 768px) {
   .ai-box {
@@ -460,6 +497,7 @@ b {
     justify-content: center;
     align-items: center;
   }
+
 
   /* ABOUT */
   .abt {
@@ -570,6 +608,7 @@ b {
 
   .footer-section h3 {
     background-color: red;
+    color: white;
   }
 
   .footer-section {
@@ -600,11 +639,20 @@ b {
 
   .predict {
     margin: 0px;
+    width:300px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    margin-bottom: 20px;
   }
+  .robot .ai-box{
+    width: 360px;
+    
+  }
+  .ai img{
+    width: 360px;
+ }
 
   .cta {
     background-color: black;
@@ -614,6 +662,11 @@ b {
     justify-content: center;
     align-items: center;
   }
+  .predict{
+    width: 360px;
+  }
+
+  
 }
 
 
@@ -622,38 +675,3 @@ section {
   padding: 60px 20px;
 }
 
-.step,
-.card,
-.abt,
-.leader,
-.predict {
-  transition: all 0.4s ease;
-  transform-style: preserve-3d;
-}
-
-.step:hover,
-.card:hover,
-.abt:hover,
-.leader:hover {
-  transform: translateY(-10px) scale(1.03) rotateX(4deg);
-}
-
-.robot .ai-box{
-  width: 850px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@keyframes float{
-  0%{transform:translateY(0px)}
-  50%{transform:translateY(-15px)}
-  100%{transform:translateY(0px)}
-}
-.primary-btn a{
-  color: black;
-}
-.ai-box a{
-  color: black;
-  
-}

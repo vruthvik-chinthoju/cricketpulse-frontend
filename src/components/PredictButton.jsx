@@ -29,7 +29,7 @@ function PredictButton({ match, disabled, predictions }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/predict/", {
+      const res = await fetch("https://cricketpulse-backend.onrender.com/api/predict/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -9,7 +9,7 @@ function Teams() {
   useEffect(() => {
     const token = localStorage.getItem("access");
 
-    fetch("http://127.0.0.1:8000/api/teams/", {
+    fetch("https://cricketpulse-backend.onrender.com/api/teams/", {
       headers: token
         ? { Authorization: `Bearer ${token}` }
         : {}

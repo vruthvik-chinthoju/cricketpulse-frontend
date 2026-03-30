@@ -25,7 +25,7 @@ function Chatbot() {
 
     try {
 
-      const res = await fetch("http://localhost:8000/api/chat-ai/",{
+      const res = await fetch("https://cricketpulse-backend.onrender.com/api/chat-ai/",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

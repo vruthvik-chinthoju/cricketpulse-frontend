@@ -14,7 +14,7 @@ function MyPredictions() {
             return;
         }
 
-        fetch("http://127.0.0.1:8000/api/my-predictions/", {
+        fetch("https://cricketpulse-backend.onrender.com/api/my-predictions/", {
             headers: {
                 "Authorization": `Bearer ${token}`
             }

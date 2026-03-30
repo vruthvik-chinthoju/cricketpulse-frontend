@@ -2,6 +2,9 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import "./css/NavBar.css";
+import logo from "../assets/logo.png";
+import stumps from "../assets/stumps.png"
+
 
 function Navbar() {
   const navigate = useNavigate();
@@ -34,9 +37,9 @@ function Navbar() {
   return (
     <nav>
       <div className="left">
-        <img className="stumps" src="/stumps.png" alt="" />
+        <img className="stumps" src={stumps} alt="" />
         <div className="logo">
-          <img className="lo" src="/logo.png" alt="logo" />
+          <img className="lo" src={logo} alt="logo" />
         </div>
       </div>
 

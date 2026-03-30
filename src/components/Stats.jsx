@@ -12,7 +12,7 @@ function Teams() {
     setLoading(true);
 
     try{
-      const res = await fetch(`http://localhost:8000/api/ipl/player/${id}`);
+      const res = await fetch(`https://cricketpulse-backend.onrender.com/api/ipl/player/${id}`);
       const data = await res.json();
 
       if(data.error){
@@ -32,7 +32,7 @@ function Teams() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:8000/api/ipl/teams/${year}`)
+    fetch(`https://cricketpulse-backend.onrender.com/api/ipl/teams/${year}`)
       .then(res => res.json())
       .then(data => {
 

@@ -33,11 +33,11 @@ function Register() {
     setLoading(true);
 
     try {
-      await axios.post("http://127.0.0.1:8000/api/register/", data);
+      await axios.post("https://cricketpulse-backend.onrender.com/api/register/", data);
 
       alert("Registered successfully ✅");
 
-      const loginRes = await axios.post("http://127.0.0.1:8000/api/token/", {
+      const loginRes = await axios.post("https://cricketpulse-backend.onrender.com/api/token/", {
         username: data.username,
         password: data.password
       });
