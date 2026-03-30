@@ -11,8 +11,7 @@ import Home from "./components/home"
 import Stats from "./components/Stats"
 import { HashRouter } from "react-router-dom";
 import GithubCallback from "./components/Githubcallback";
-import Admin from "./components/AdminPanel"
-
+import AdminPanel from "./AdminPanel";
 
 
 

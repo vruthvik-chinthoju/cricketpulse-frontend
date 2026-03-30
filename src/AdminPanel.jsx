@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./css/AdminPanel.css"
+import "./components/css/AdminPanel.css"
 
 function AdminPanel() {
   const [matches, setMatches] = useState([]);
@@ -8,7 +8,7 @@ function AdminPanel() {
   const token = localStorage.getItem("access");
 
   useEffect(() => {
-    fetch("https://cricketpulse-backend.onrender.com/api/match-list/")
+    fetch("https://cricketpulse-backend.onrender.com/api/matches/")
       .then(res => res.json())
       .then(data => {
         setMatches(data);
