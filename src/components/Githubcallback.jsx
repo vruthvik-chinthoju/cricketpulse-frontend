@@ -32,7 +32,11 @@ function GithubCallback() {
     }
   }, []);
 
-  return <h2>Logging in with GitHub...</h2>;
+  return (
+    <div className="box">
+      <h2>Logging in With Git hub</h2>
+    </div>
+  )
 }
 
 export default GithubCallback;
