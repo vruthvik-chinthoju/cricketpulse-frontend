@@ -78,7 +78,7 @@ function Chatbot() {
 
           {/* Header */}
           <div className="chat-header">
-            <span>🏏 CricketPulse AI</span>
+            <span>CricketPulse AI</span>
             <button onClick={()=>setOpen(false)}>✖</button>
           </div>
 

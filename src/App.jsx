@@ -22,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/matches" element={<h1><MatchList/></h1>} />
+        <Route path="/github-callback" element={<GithubCallback />} />
         <Route path="/teams" element={<h1><Teams/></h1>} />
         <Route path="/stats" element={<h1><Stats/></h1>} />
         <Route path="/ai-stats" element={<h1>AI Stats</h1>} />

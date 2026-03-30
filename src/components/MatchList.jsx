@@ -23,16 +23,16 @@ function MatchList() {
     };
 
     const teamLogos = {
-        "Royal Challengers Bengaluru": "/teams/rcb.avif",
-        "Sunrisers Hyderabad": "/teams/srh.avif",
-        "Mumbai Indians": "/teams/mi.avif",
-        "Chennai Super Kings": "/teams/csk.avif",
-        "Kolkata Knight Riders": "/teams/kkr.avif",
-        "Delhi Capitals": "/teams/dc.avif",
-        "Punjab Kings": "/teams/pk.avif",
-        "Rajasthan Royals": "/teams/rr.webp",
-        "Gujarat Titans": "/teams/gt.avif",
-        "Lucknow Super Giants": "/teams/lsg.avif"
+        "Royal Challengers Bengaluru": "teams/rcb.avif",
+        "Sunrisers Hyderabad": "teams/srh.avif",
+        "Mumbai Indians": "teams/mi.avif",
+        "Chennai Super Kings": "teams/csk.avif",
+        "Kolkata Knight Riders": "teams/kkr.avif",
+        "Delhi Capitals": "teams/dc.avif",
+        "Punjab Kings": "teams/pk.avif",
+        "Rajasthan Royals": "teams/rr.webp",
+        "Gujarat Titans": "teams/gt.avif",
+        "Lucknow Super Giants": "teams/lsg.avif"
     };
 
     const getLogo = (teamName) => {
