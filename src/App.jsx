@@ -11,6 +11,7 @@ import Home from "./components/home"
 import Stats from "./components/Stats"
 import { HashRouter } from "react-router-dom";
 import GithubCallback from "./components/Githubcallback";
+import Admin from "./components/AdminPanel"
 
 
 
@@ -22,6 +23,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/admin" element={<AdminPanel />} />
         <Route path="/matches" element={<h1><MatchList/></h1>} />
         <Route path="/github-callback" element={<GithubCallback />} />
         <Route path="/teams" element={<h1><Teams/></h1>} />
