@@ -199,3 +199,10 @@ button:hover {
         font-size: 15px;
     }
 }
+
+@media screen and (max-width:400px){
+    .all .predict{
+        /* background-color: red; */
+        width: 270px;
+    }
+}

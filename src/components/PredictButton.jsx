@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function PredictButton({ match, disabled, predictions }) {
+function PredictButton({ match, disabled, predictions, setPredictions }) {
 
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
-
   const alreadyPredicted = predictions.some(
-    (p) => p.match === match.id
+    (p) => p.match === match.id || p.match_id === match.id
   );
 
   const selected = predictions.find(
@@ -41,35 +40,31 @@ function PredictButton({ match, disabled, predictions }) {
         })
       });
 
-      const data = await res.json();
-
       if (!res.ok) {
-        if (data.code === "token_not_valid") {
-          alert("Session expired");
-          localStorage.clear();
-          navigate("/login");
-          return;
-        }
-
-        alert(data.detail || "Error");
+        const data = await res.json();
+        alert(data.error || "Error");
         return;
       }
 
-      alert("Prediction submitted");
-
+      alert("Prediction submitted ✅");
 
       setPredictions(prev => [
         ...prev,
-        { match: match.id, predicted_team: teamId }
+        {
+          match: match.id,
+          match_id: match.id,
+          predicted_team: teamId
+        }
       ]);
 
     } catch (err) {
       console.log(err);
       alert("Network error ❌");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
+
 
   return (
     <>

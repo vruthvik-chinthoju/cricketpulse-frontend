@@ -59,7 +59,7 @@ function MyPredictions() {
                         <b>{p.predicted_team}</b>
 
                         <p
-                            className="predict"
+                            className="status correct"
                             style={{
                                 color:
                                     p.winner

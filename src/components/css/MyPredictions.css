@@ -1,30 +1,33 @@
 @font-face {
-    font-family: "rac";
-    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
-}
-.mypredictions {
-  padding: 20px;
-  min-height: 100vh;
-  padding-top: 30px;
+  font-family: "rac";
+  src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
 }
 
-.mypredictions h2{
-    font-family: "rac";
-    text-align: center;
-    padding-bottom: 30px;
-    color: #facc15;
+.mypredictions {
+  padding: 15px;
+  min-height: 100vh;
+  padding-top: 20px;
 }
+
+.mypredictions h2 {
+  font-family: "rac";
+  text-align: center;
+  padding-bottom: 25px;
+  color: #facc15;
+}
+
+/* MAIN ROW */
 .prediction-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #1e1e1e;
   color: white;
-  padding: 15px 20px;
+  padding: 12px 15px;
   margin-bottom: 10px;
   border-radius: 10px;
   transition: 0.3s;
-  /* background-color: red; */
+  gap: 10px;
 }
 
 .prediction-row:hover {
@@ -32,33 +35,89 @@
   background: #2a2a2a;
 }
 
+/* LEFT */
 .match-info {
   flex: 2;
- font-family: rac;
+  font-family: "rac";
 }
 
 .match-no {
-  font-size: 14px;
+  font-size: 13px;
   color: #aaa;
 }
 
 .teams {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
+  word-break: break-word;
 }
 
+/* CENTER */
 .prediction-info {
   flex: 1;
   text-align: center;
   font-family: "rac";
-  font-size: 15px;
+  font-size: 14px;
 }
-.prediction-info .predict{
-    font-size: 15px;
+
+.prediction-info .predict {
+  font-size: 14px;
+  margin-top: 5px;
 }
+
+/* RIGHT */
 .points {
   flex: 1;
   text-align: right;
   color: #22c55e;
-  font-size: 18px;
+  font-size: 16px;
+}
+
+/* 🔥 TABLET */
+@media (max-width: 768px) {
+  .prediction-row {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .match-info {
+    flex: 100%;
+  }
+
+  .prediction-info,
+  .points {
+    flex: 1;
+    text-align: left;
+  }
+
+  .teams {
+    font-size: 15px;
+  }
+}
+
+/* 🔥 MOBILE */
+@media (max-width: 480px) {
+  .prediction-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .prediction-info,
+  .points {
+    text-align: left;
+    width: 100%;
+  }
+
+  .points {
+    font-size: 15px;
+  }
+
+  .teams {
+    font-size: 14px;
+  }
+
+  .mypredictions h2 {
+    font-size: 18px;
+  }
 }

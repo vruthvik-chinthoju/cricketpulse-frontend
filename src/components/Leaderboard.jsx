@@ -26,12 +26,12 @@ function Leaderboard() {
     <div className="leaderboard">
       <h2>🎖️Leaderboard🎖️</h2>
 
-      <div className="leaderboard-row">
-          <div className="ra">Rank</div>
-          <div className="user">Usernames</div>
-          <div className="points"><b></b>Points</div>
-          <div className="acc">Accuracy</div>
-        </div>
+      <div className="leaderboard-row header">
+        <div className="ra">Rank</div>
+        <div className="user">Username</div>
+        <div className="points">Points</div>
+        <div className="acc">Accuracy</div>
+      </div>
 
 
       {data.map((user) => (

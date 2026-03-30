@@ -1,43 +1,41 @@
 @font-face {
-    font-family: "rac";
-    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+  font-family: "rac";
+  src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
 }
+
 .leaderboard {
-  padding: 20px;
+  padding: 15px;
   color: white;
   font-family: "rac";
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.leaderboard h2{
-    text-align: center;
-    margin-bottom: 20px;
-    color:#facc15;;
-}
-.acc{
-    color: skyblue;
-    font-size: 15px ;
+
+.leaderboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #facc15;
 }
 
-.ra{
-    font-size: 15px;
-    color: Red;
+/* HEADER LABELS */
+.leaderboard-row.header {
+  background: transparent;
+  font-size: 14px;
+  opacity: 0.7;
 }
-.user{
-    color: grey;
-    font-size: 15px;
-    margin-left: 25px;
-}
+
+/* ROW DESIGN */
 .leaderboard-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #1e1e1e;
-  padding: 15px 20px;
-  margin-bottom: 10px;
+  padding: 12px 15px;
   border-radius: 10px;
   transition: 0.3s;
+  gap: 10px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .leaderboard-row:hover {
@@ -46,29 +44,79 @@
 }
 
 .rank {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  width: 60px;
+  min-width: 50px;
 }
 
 .username {
   flex: 2;
-  font-size: 18px;
-
+  font-size: 16px;
+  word-break: break-word;
 }
-/* }
- */
 
 .points {
   flex: 1;
   text-align: center;
   color: #22c55e;
   font-weight: bold;
-  margin-right:30px;
 }
 
 .accuracy {
   flex: 1;
   text-align: right;
   color: #38bdf8;
+}
+
+/* SMALL TEXT COLORS */
+.ra {
+  color: red;
+}
+.user {
+  color: grey;
+}
+.acc {
+  color: skyblue;
+}
+
+/* 🔥 MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .leaderboard-row {
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .rank {
+    font-size: 14px;
+  }
+
+  .username {
+    flex: 100%;
+    font-size: 15px;
+  }
+
+  .points,
+  .accuracy {
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+/* 🔥 EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+  .leaderboard h2 {
+    font-size: 18px;
+  }
+
+  .leaderboard-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .points,
+  .accuracy {
+    text-align: left;
+  }
 }
