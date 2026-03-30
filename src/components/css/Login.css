@@ -98,12 +98,17 @@ h3{
     margin-top: 15px;
 }
 /* Mobile responsive */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .box {
         width: 90%;
         padding: 20px;
         margin-bottom:80px;
     }
+    .main h1{
+        color: white;
+    }
+    
+
 }
 /* Mobile responsive */
 @media (max-width: 900px) {

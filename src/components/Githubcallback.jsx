@@ -7,12 +7,13 @@ function GithubCallback() {
   const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
+
     const fullUrl = window.location.href;
 
-    // 🔥 Extract code correctly (important for GitHub Pages)
-    const code = fullUrl.split("code=")[1]?.split("&")[0];
+    const code = fullUrl.split("code=")[1]?.split("#")[0];
 
-    console.log("GITHUB CODE:", code);
+    console.log("GITHUB CODE CLEAN:", code);
+
 
     if (code) {
       axios.post(`${API}/api/github-login/`, { code })
@@ -35,3 +36,5 @@ function GithubCallback() {
 }
 
 export default GithubCallback;
+
+
