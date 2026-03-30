@@ -7,7 +7,7 @@ import "./index.css";
 
 async function wakeServer() {
   try {
-    const res = await fetch("https://cricketpulse-backend.onrender.com/api/match-list/");
+    const res = await fetch("https://cricketpulse-backend.onrender.com/api/matches/");
     return res.ok;
   } catch {
     return false;
@@ -58,11 +58,11 @@ function Root() {
   return (
     <>
       <App />
-      
+
       {serverDown && (
         <div className="server-popup">
           <div className="popup-box">
-            <h2>🏏 CricketPulse</h2>
+            <h2>CricketPulse</h2>
             <p>Server is waking up...</p>
 
             <div className="countdown">

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
 
 html, body {
   height: 100%;
@@ -64,9 +68,14 @@ body {
 
 .popup-box h2 {
   color: #facc15;
+  font-family: "rac";
+  letter-spacing: 1px;
 }
 
-/* 🔥 COUNTDOWN */
+.popup-box p{
+  font-family: "rac";
+}
+
 .countdown {
   font-size: 28px;
   margin-top: 10px;
