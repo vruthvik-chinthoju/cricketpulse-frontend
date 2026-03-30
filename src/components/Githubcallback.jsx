@@ -7,7 +7,12 @@ function GithubCallback() {
   const API = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const code = new URLSearchParams(window.location.search).get("code");
+    const fullUrl = window.location.href;
+
+    // 🔥 Extract code correctly (important for GitHub Pages)
+    const code = fullUrl.split("code=")[1]?.split("&")[0];
+
+    console.log("GITHUB CODE:", code);
 
     if (code) {
       axios.post(`${API}/api/github-login/`, { code })
@@ -15,12 +20,13 @@ function GithubCallback() {
           localStorage.setItem("access", res.data.access);
           localStorage.setItem("refresh", res.data.refresh);
 
-          alert("GitHub login successful");
+          alert("GitHub login successful ✅");
+
           navigate("/");
         })
         .catch(err => {
           console.log(err);
-          alert("GitHub login failed");
+          alert("GitHub login failed ❌");
         });
     }
   }, []);
