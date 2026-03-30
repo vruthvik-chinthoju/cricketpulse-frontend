@@ -20,7 +20,7 @@ function Login() {
 
   const githubLogin = () => {
     window.location.href =
-      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend/github-callback";
+      "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend/#/github-callback";
   };
 
   const handleChange = (e) => {
