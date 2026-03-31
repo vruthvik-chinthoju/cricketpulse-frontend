@@ -43,10 +43,10 @@ function Login() {
       <h1>Login</h1>
       <div className="box">
         <label>Username</label>
-        <input name="username" onChange={handleChange} />
+        <input name="username" onChange={handleChange} placeholder=" You Name" />
 
         <label>Password</label>
-        <input name="password" type="password" onChange={handleChange} />
+        <input name="password" type="password" onChange={handleChange}  placeholder=" Your Password"/>
 
         <button onClick={handleLogin}>Login</button>
 

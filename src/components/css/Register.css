@@ -46,10 +46,11 @@
 }
 
 /* Labels */
-.box label {
+.main .box label {
     font-family: "rac", sans-serif;
     color: whitesmoke;
     letter-spacing: 1px;
+    text-align: left;
 }
 
 /* Inputs */
@@ -70,8 +71,8 @@
 }
 
 /* Button */
-.box button {
-    padding: 12px;
+.main .box button {
+    padding: 15px;
     border: none;
     border-radius: 6px;
     background-color: red;

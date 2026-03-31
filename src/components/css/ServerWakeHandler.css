@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "rac";
+    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+}
+
+.sleep h2{
+    font-family: "rac";
+    color: yellow;
+}
+
+.sleep p{
+    font-family: "rac";
+}
+
+.box{
+    background-color: #16171d;
+}

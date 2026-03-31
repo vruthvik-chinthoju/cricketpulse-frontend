@@ -52,8 +52,8 @@ function Teams() {
 
             <p>Matches: <b>{team.matches}</b></p>
             <p>Wins: <b>{team.wins}</b></p>
-            <p>Losses: <b>{team.losses}</b></p>
-            <p>Win %: <b>{team.win_percentage}</b>%</p>
+            {/* <p>Loses: <b>{team.losses}</b></p> */}
+            <p>Win Percentage : <b>{team.win_percentage}</b>%</p>
           </div>
         ))
       )}

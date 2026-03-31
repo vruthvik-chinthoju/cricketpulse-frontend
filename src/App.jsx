@@ -12,28 +12,33 @@ import Stats from "./components/Stats"
 import { HashRouter } from "react-router-dom";
 import GithubCallback from "./components/Githubcallback";
 import AdminPanel from "./AdminPanel";
+import ServerWakeHandler from "./components/ServerWakeHandler"
+
 
 
 
 function App() {
   return (
     <HashRouter>
-      <Navbar />
+      <ServerWakeHandler>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/admin" element={<AdminPanel />} />
-        <Route path="/matches" element={<h1><MatchList/></h1>} />
-        <Route path="/github-callback" element={<GithubCallback />} />
-        <Route path="/teams" element={<h1><Teams/></h1>} />
-        <Route path="/stats" element={<h1><Stats/></h1>} />
-        <Route path="/ai-stats" element={<h1>AI Stats</h1>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/my-predictions" element={<MyPredictions/>} />
-        <Route path="/leaderboard" element={<h1><Leaderboard/></h1>} />
-      </Routes>
-      <Chatbot/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/matches" element={<h1><MatchList /></h1>} />
+          <Route path="/github-callback" element={<GithubCallback />} />
+          <Route path="/teams" element={<h1><Teams /></h1>} />
+          <Route path="/stats" element={<h1><Stats /></h1>} />
+          <Route path="/ai-stats" element={<h1>AI Stats</h1>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/my-predictions" element={<MyPredictions />} />
+          <Route path="/leaderboard" element={<h1><Leaderboard /></h1>} />
+        </Routes>
+        <Chatbot />
+      </ServerWakeHandler>
+
     </HashRouter>
   );
 }
