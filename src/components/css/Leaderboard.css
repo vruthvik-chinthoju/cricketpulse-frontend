@@ -3,96 +3,130 @@
   src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
 }
 
+
 .leaderboard {
-  padding: 15px;
-  color: white;
-  font-family: "rac";
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 40px 20px;
+  background: #F8FAFC;
+  font-family: "Poppins", sans-serif;
+  border-top: 1px solid black;
 }
+
 
 .leaderboard h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #facc15;
+  margin-bottom: 30px;
+  color: #16A34A;
+  font-size: 28px;
+  font-weight: 700;
 }
 
-/* HEADER LABELS */
+
 .leaderboard-row.header {
   background: transparent;
-  font-size: 14px;
-  opacity: 0.7;
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 10px;
 }
 
-/* ROW DESIGN */
+
 .leaderboard-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1e1e1e;
-  padding: 12px 15px;
-  border-radius: 10px;
-  transition: 0.3s;
-  gap: 10px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  background: #16A34A;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+  transition: 0.3s ease;
+  margin-bottom: 10px;
 }
 
+
 .leaderboard-row:hover {
-  background: #2a2a2a;
-  transform: scale(1.02);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
+
 
 .rank {
   font-size: 16px;
-  font-weight: bold;
-  min-width: 50px;
+  font-weight: 600;
+  color: #111827;
+  min-width: 60px;
 }
+
+
+.leaderboard .leaderboard-row:nth-child(2){
+  color: gold;
+  background-color: grey;
+}
+.leaderboard-row:nth-child(3) {
+  color: silver;
+  background-color: rgb(216, 188, 27);
+}
+.leaderboard-row:nth-child(4) {
+  color: #cd7f32;
+  background-color: silver;
+}
+.leaderboard-row:nth-child(5) {
+  color: #cd7f32;
+  background-color: #cd7f32;
+}
+
+
 
 .username {
   flex: 2;
-  font-size: 16px;
-  word-break: break-word;
+  font-size: 15px;
+  color: #111827;
+  font-weight: 500;
 }
 
-.points {
+
+.leaderboard .points {
   flex: 1;
   text-align: center;
-  color: #22c55e;
-  font-weight: bold;
+  font-weight: 900;
+  color: black;
+  font-size: 20px;
+  font-family: "Poppins";
+  letter-spacing: 0px;
 }
+
 
 .accuracy {
   flex: 1;
   text-align: right;
-  color: #38bdf8;
+  color: black;
+  font-family: "Poppins";
+  font-size: 22px;
 }
 
-/* SMALL TEXT COLORS */
-.ra {
-  color: red;
-}
-.user {
-  color: grey;
-}
+
+.ra,
+.user,
 .acc {
-  color: skyblue;
+  color: black;
+  padding: 10px;
 }
 
-/* 🔥 MOBILE RESPONSIVENESS */
+
+
+
+
+
 @media (max-width: 768px) {
   .leaderboard-row {
     flex-wrap: wrap;
-    padding: 10px;
-  }
-
-  .rank {
-    font-size: 14px;
+    padding: 12px;
   }
 
   .username {
     flex: 100%;
-    font-size: 15px;
+    margin: 5px 0;
   }
 
   .points,
@@ -103,20 +137,21 @@
   }
 }
 
-/* 🔥 EXTRA SMALL DEVICES */
+/* SMALL DEVICES */
 @media (max-width: 480px) {
   .leaderboard h2 {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .leaderboard-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 8px;
   }
-
-  .points,
-  .accuracy {
-    text-align: left;
+  .leaderboard-row .points{
+    display: flex;
+    font-weight: 500;
+    font-family: "Poppins";
+    font-size: 18px;
   }
 }

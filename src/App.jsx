@@ -13,13 +13,14 @@ import { HashRouter } from "react-router-dom";
 import GithubCallback from "./components/Githubcallback";
 import AdminPanel from "./AdminPanel";
 import ServerWakeHandler from "./components/ServerWakeHandler"
-
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 function App() {
   return (
     <HashRouter>
+      <ToastContainer position="top-right" autoClose={2000} />
       <ServerWakeHandler>
         <Navbar />
 

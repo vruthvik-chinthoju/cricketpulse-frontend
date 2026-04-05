@@ -1,106 +1,102 @@
-@font-face {
-  font-family: "rac";
-  src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
+.wake-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-/* Overlay */
-.server-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 12, 18, 0.8);
-  backdrop-filter: blur(6px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeIn 0.4s ease;
+
+.wake-popup {
+    background: linear-gradient(145deg, #1e1f26, #2a2c36);
+    padding: 30px 25px;
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 380px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    animation: fadeIn 0.4s ease;
 }
 
-/* Popup */
-.server-popup {
-  background: linear-gradient(145deg, #1e2230, #141720);
-  padding: 30px 25px;
-  border-radius: 16px;
-  text-align: center;
-  width: 90%;
-  max-width: 380px;
-  color: #fff;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  animation: scaleUp 0.4s ease;
+.wake-popup h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #00e5ff;
 }
 
-/* Heading */
-.server-popup h2 {
-  font-family: "rac", sans-serif;
-  color: #ffd700;
-  font-size: 22px;
-  margin-bottom: 10px;
+.wake-popup p {
+    font-size: 14px;
+    opacity: 0.8;
 }
 
-/* Text */
-.server-popup p {
-  font-family: "rac", sans-serif;
-  font-size: 14px;
-  color: #ccc;
+
+.loader {
+    margin: 20px auto 0;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255,255,255,0.2);
+    border-top: 4px solid #00e5ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-/* Spinner */
-.spinner {
-  margin: 25px auto 10px;
-  width: 40px;
-  height: 40px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top: 4px solid #00d4ff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
 }
 
-/* Animations */
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff, #00ff88);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+
+.progress-text {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
 @keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-@keyframes scaleUp {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 
-/* 📱 Mobile tweaks */
 @media (max-width: 480px) {
-  .server-popup {
-    padding: 25px 20px;
-  }
+    .wake-popup {
+        padding: 25px 18px;
+        border-radius: 12px;
+    }
 
-  .server-popup h2 {
-    font-size: 18px;
-  }
+    .wake-popup h2 {
+        font-size: 16px;
+    }
 
-  .server-popup p {
-    font-size: 13px;
-  }
-
-  .spinner {
-    width: 32px;
-    height: 32px;
-  }
+    .wake-popup p {
+        font-size: 13px;
+    }
 }

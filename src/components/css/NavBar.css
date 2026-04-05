@@ -1,121 +1,151 @@
-@font-face {
-    font-family: "rac";
-    src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
-}
 
 nav {
-    padding: 15px;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* KEY */
+  padding: 10px 28px;
+  background-color: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
+.logo h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #111827;
+  font-size: 24px;
+}
+.logo h1:hover{
+  color:#22C55E;
+}
 
 
 .left {
-    display: flex;
-    align-items: center;
-    gap: 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.logo .lo {
-    height: 18px;
-}
-
 
 .pages {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    font-family: "rac", sans-serif;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.pages a {
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 
-.pages a {
-    color: #ef4444;
-    text-decoration: none;
+.pages a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #22C55E;
+  transition: width 0.3s ease;
 }
 
 .pages a:hover {
-    color: rgb(228, 94, 94);
-    text-decoration: underline;
+  color: #22C55E;
 }
 
-.stumps {
-    width: 35px;
+.pages a:hover::after {
+  width: 100%;
 }
 
-.pages a {
-    color:  #ef4444;;
-    text-decoration: none;
-    letter-spacing: 1px;
+
+.pages button {
+  background: linear-gradient(135deg, #22C55E, #16A34A);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease;
 }
-.pages a:hover{
-    color: rgb(228, 94, 94);
-    text-decoration: underline;
+
+.pages button:hover {
+  transform: scale(1.05);
 }
 
 .hamburger {
-    display: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #111827;
 }
-.stumps{
-    width: 40px;
+.left img{
+    width: 50px;
+}
+.pages button{
+  font-family: "Poppins";
+  border-radius: 5px;
 }
 
-.pages a {
-  color: #ddd;
-}
-.pages a:hover {
-  color: #00ff88;
-}
 
 @media (max-width: 768px) {
-    .logo img{
-        height: 15px;
+  .hamburger {
+    display: block;
+  }
+
+  .pages {
+    position: fixed; 
+    top: 62px; 
+    right: 0;
+    width: 240px;
+
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: 20px;
+
+    border-radius: 10px 0 0 10px;
+
+    display: none;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    z-index: 999; 
+    
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .pages.show {
+    display: flex;
+    transform: translateX(0); 
+  }
+
+  .pages a,
+  .pages button {
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 5px;
+    font-family: "Poppins";
+  }
+}
+
+@media screen and (max-width:400px){
+    .left img{
+        width: 60px;
+    }
+    .logo h1{
+        font-size: 20px;
     }
     nav{
-        padding: 15px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .pages {
-        position: absolute;
-        top: 55px;
-        right: 0;
-        background-color: black;
-        flex-direction: column;
-        width: 370px;
-        padding: 20px;
-        display: none;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-    .pages:hover{
-        color: rgb(211, 38, 38);
-    }
-
-    .pages.show {
-        display: flex;
-    }
-    .pages a, 
-    .pages button {
-        padding: 10px ;
-        text-align: left;
-    }
-    .pages{
-        right: 0;
+      padding: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 5px;
+      padding-right: 20px;
     }
 }
+
+

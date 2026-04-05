@@ -3,81 +3,136 @@
   src: url("/quartzo-font/QuartzoBold-W9lv.ttf") format("truetype");
 }
 
+
 .mypredictions {
-  padding: 15px;
+  border-top: 1px solid black;
+  padding: 40px 20px;
   min-height: 100vh;
-  padding-top: 20px;
+  background: #F8FAFC;
+  font-family: "Poppins", sans-serif;
 }
+
 
 .mypredictions h2 {
-  font-family: "rac";
   text-align: center;
-  padding-bottom: 25px;
-  color: #facc15;
+  margin-bottom: 30px;
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
 }
 
-/* MAIN ROW */
+
 .prediction-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1e1e1e;
-  color: white;
-  padding: 12px 15px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  transition: 0.3s;
+
+  background: #2bd86b;
+  color: black;
+  padding: 18px 20px;
+  margin-bottom: 15px;
+
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+  transition: 0.3s ease;
   gap: 10px;
 }
 
+/* HOVER */
 .prediction-row:hover {
-  transform: scale(1.02);
-  background: #2a2a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
 
 /* LEFT */
 .match-info {
   flex: 2;
-  font-family: "rac";
 }
 
-.match-no {
-  font-size: 13px;
-  color: #aaa;
+.match-info .match-no {
+  font-size: 12px;
+  color: black;
 }
 
-.teams {
-  font-size: 17px;
-  font-weight: bold;
-  word-break: break-word;
+.match-info .teams {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
 }
 
 /* CENTER */
 .prediction-info {
   flex: 1;
   text-align: center;
-  font-family: "rac";
   font-size: 14px;
+  color: black;
+}
+.prediction-row .prediction-info p{
+  color:black;
+  font-family: "Poppins";
+  letter-spacing: 0px;
 }
 
-.prediction-info .predict {
-  font-size: 14px;
+.prediction-info b {
+  color: #111827;
+}
+
+/* STATUS */
+.status {
   margin-top: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.correct {
+  color: #16A34A;
+  background-color: rgb(245, 83, 83);
+  border-radius: 10px;
+}
+
+.prediction-info .pending{
+  color: black;
+  background-color: red;
+}
+
+.status.wrong {
+  color: #DC2626;
+}
+
+.prediction-info .status.pending{
+  color: blue;
+  padding: 10px;
 }
 
 /* RIGHT */
 .points {
   flex: 1;
   text-align: right;
-  color: #22c55e;
-  font-size: 16px;
+
 }
 
-/* 🔥 TABLET */
+.prediction-row .points p {
+  font-size: 12px;
+  color: black;
+}
+
+.points b {
+  font-size: 16px;
+  color: #16A34A;
+}
+
+/* LOADING / EMPTY */
+.mypredictions p {
+  text-align: center;
+  color: #6B7280;
+}
+
+/* TABLET */
 @media (max-width: 768px) {
   .prediction-row {
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 15px;
   }
 
   .match-info {
@@ -95,22 +150,22 @@
   }
 }
 
-/* 🔥 MOBILE */
+/* MOBILE */
 @media (max-width: 480px) {
   .prediction-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 24px;
+  }
+  .prediction-row .match-no{
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
   .prediction-info,
   .points {
-    text-align: left;
     width: 100%;
-  }
-
-  .points {
-    font-size: 15px;
+    text-align: left;
   }
 
   .teams {
@@ -118,6 +173,11 @@
   }
 
   .mypredictions h2 {
-    font-size: 18px;
+    font-size: 22px;
   }
+  .status.correct {
+  color: #16A34A;
+  background-color: rgb(245, 83, 83);
+  border-radius: 8px;
+}
 }

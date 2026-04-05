@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import PredictButton from "./PredictButton";
 import "./css/MatchList.css";
+import { toast } from "react-toastify";
 
 function MatchList() {
+    const [filter, setFilter] = useState("all");
     const [matches, setMatches] = useState([]);
     const [currentTime, setCurrentTime] = useState(new Date());
     const [predictions, setPredictions] = useState([]);
@@ -11,6 +13,17 @@ function MatchList() {
     const isPredictionClosed = (matchDate) => {
         const matchTime = new Date(matchDate);
         return currentTime >= matchTime;
+    };
+
+    const isToday = (matchDate) => {
+        const today = new Date();
+        const match = new Date(matchDate);
+
+        return (
+            today.getDate() === match.getDate() &&
+            today.getMonth() === match.getMonth() &&
+            today.getFullYear() === match.getFullYear()
+        );
     };
 
     const formatDate = (dateString) => {
@@ -44,7 +57,7 @@ function MatchList() {
         const diff = matchTime - currentTime;
 
         if (diff > 0 && diff <= 300000 && !alertedMatches[matchId]) {
-            alert("⏰ Hurry! Less than 5 minutes left to predict!");
+            toast.success("Hurry! Less than 5 minutes left to predict!");
             setAlertedMatches(prev => ({ ...prev, [matchId]: true }));
         }
 
@@ -58,7 +71,7 @@ function MatchList() {
             .toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
 
-    // ⏱ Timer
+
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentTime(new Date());
@@ -67,7 +80,7 @@ function MatchList() {
         return () => clearInterval(timer);
     }, []);
 
-    // 📌 Fetch matches
+
     useEffect(() => {
         fetch("https://cricketpulse-backend.onrender.com/api/matches/")
             .then(res => res.json())
@@ -78,7 +91,7 @@ function MatchList() {
             .catch(err => console.error("Match fetch error:", err));
     }, []);
 
-    // 📌 Fetch predictions (with auth)
+
     useEffect(() => {
         const token = localStorage.getItem("access");
 
@@ -115,49 +128,64 @@ function MatchList() {
 
             {matches.length === 0 && <p>Loading matches...</p>}
 
-            {matches.map(match => (
-                <div key={match.id} className="all">
+            <div className="filter-buttons">
+                <button onClick={() => setFilter("all")}>All Matches</button>
+                <button onClick={() => setFilter("today")}>Today's Match</button>
+                <button onClick={() => setFilter("remaining")}>Upcoming Matches</button>
+            </div>
 
-                    <div className="teams">
-                        <div className="team">
-                            <img src={getLogo(match.team1)} alt={match.team1} />
-                            <span>{match.team1}</span>
+            {matches
+                .filter(match => {
+                    if (filter === "today") return isToday(match.match_date);
+                    if (filter === "remaining") return !isPredictionClosed(match.match_date);
+                    return true;
+                })
+                .map(match => (
+                    <div
+                        key={match.id}
+                        className={`all ${isToday(match.match_date) ? "today-match" : ""}`}
+                    >
+
+                        <div className="teams">
+                            <div className="team">
+                                <img src={getLogo(match.team1)} alt={match.team1} />
+                                <span>{match.team1}</span>
+                            </div>
+
+                            <span className="vs">VS</span>
+
+                            <div className="team">
+                                <img src={getLogo(match.team2)} alt={match.team2} />
+                                <span>{match.team2}</span>
+                            </div>
                         </div>
 
-                        <span className="vs">VS</span>
+                        <p>Match No : <b>{match.match_number}</b></p>
+                        <p>Venue : {match.venue}</p>
 
-                        <div className="team">
-                            <img src={getLogo(match.team2)} alt={match.team2} />
-                            <span>{match.team2}</span>
+                        <p>Date : <b>{formatDate(match.match_date)}</b></p>
+
+                        <p className="countdown">
+                            Starts in : <b>{getCountdown(match.match_date, match.id)}</b>
+                        </p>
+
+                        <p className="predict">
+                            {isPredictionClosed(match.match_date)
+                                ? "Match Started (Predictions Closed)"
+                                : "Prediction Open"}
+                        </p>
+
+                        <div className="buttons">
+                            <PredictButton
+                                match={match}
+                                disabled={isPredictionClosed(match.match_date)}
+                                predictions={predictions}
+                                setPredictions={setPredictions}
+                            />
                         </div>
+
                     </div>
-
-                    <p>Match No : <b>{match.match_number}</b></p>
-                    <p>Venue : {match.venue}</p>
-
-                    <p>Date : <b>{formatDate(match.match_date)}</b></p>
-
-                    <p className="countdown">
-                        Starts in : <b>{getCountdown(match.match_date, match.id)}</b>
-                    </p>
-
-                    <p className="predict">
-                        {isPredictionClosed(match.match_date)
-                            ? "Match Started (Predictions Closed)"
-                            : "Prediction Open"}
-                    </p>
-
-                    <div className="buttons">
-                        <PredictButton
-                            match={match}
-                            disabled={isPredictionClosed(match.match_date)}
-                            predictions={predictions}
-                            setPredictions={setPredictions}
-                        />
-                    </div>
-
-                </div>
-            ))}
+                ))}
         </div>
     );
 }

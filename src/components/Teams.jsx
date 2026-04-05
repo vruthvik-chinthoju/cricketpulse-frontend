@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/Teams.css";
+import { toast } from "react-toastify";
 
 function Teams() {
   const [teams, setTeams] = useState([]);
@@ -21,7 +22,7 @@ function Teams() {
       .then(data => setTeams(data))
       .catch(err => {
         console.error(err);
-        alert("Error loading teams ❌");
+        toast.error("Error loading teams ❌");
       })
       .finally(() => setLoading(false));
   }, []);

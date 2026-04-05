@@ -7,50 +7,69 @@
   padding: 20px;
   color: white;
   min-height: 100vh;
+  border-top: 1px solid black;
 }
 .teams-page h2{
-    font-family: "rac";
+    font-family: "Poppins";
     text-align: center;
-    color: tomato;
+    color: #22C55E;
     margin-bottom: 20px;
+    letter-spacing: 0px;
 }
 
 input {
   padding: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 5px;
   border: none;
+  font-family: "Poppins";
+  border: 1px solid black;
 
 }
 
-.team-card {
-  background: #1e1e1e;
+.teams-page .team-card {
   padding: 15px;
   margin-bottom: 12px;
   border-radius: 10px;
   transition: 0.3s;
   font-size: 20px;
-  font-family: "rac";
+  font-family: "Poppins";
+  background: rgb(68, 207, 126);
+  border: 1px solid black;
 
 }
 .team-card h3{
-    color:slateblue;
+    color:black;
     letter-spacing: 1px;
 }
 .team-card:hover {
   transform: scale(1.02);
-  background: #2a2a2a;
+  background: rgb(192, 187, 187);
+}
+
+.team-card p{
+  color:rgb(37, 34, 34);
 }
 
 @media screen and (max-width:400px){
   .teams-page{
-    background: url("https://i.pinimg.com/736x/a3/23/f0/a323f05b961f7eabe39e51d5b2b0049b.jpg");
-    background-size:contain;
+    border-top: 1px solid black;
+  }
+  .teams-page input{
+    border: 1px solid black;
+    border-radius: 5px;
   }
   .teams-page{
     padding: 0px;
     padding: 10px;
+  }
+
+}
+
+@media screen and (max-width:390px){
+  .teams-page .team-card{
+    max-width: 350px;
   }
 
 }

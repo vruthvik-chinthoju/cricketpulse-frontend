@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./css/Login.css";
 import { GoogleLogin } from "@react-oauth/google";
+import { toast } from "react-toastify";
 
 function Login() {
   const API = import.meta.env.VITE_API_URL;
@@ -13,7 +14,6 @@ function Login() {
     password: ""
   });
 
-  // 🔥 GitHub Login
   const githubLogin = () => {
     window.location.href =
       "https://github.com/login/oauth/authorize?client_id=Ov23ligSAFksea0QwijE&scope=user:email&redirect_uri=https://vruthvik-chinthoju.github.io/cricketpulse-frontend/#/github-callback";
@@ -30,32 +30,46 @@ function Login() {
       localStorage.setItem("access", res.data.access);
       localStorage.setItem("refresh", res.data.refresh);
 
-      alert("Login successful");
+      toast.success("Login successful");
       navigate("/");
     } catch (err) {
       console.log(err);
-      alert("Login failed");
+      toast.error("Login failed");
     }
   };
 
   return (
-    <div className="main">
-      <h1>Login</h1>
-      <div className="box">
-        <label>Username</label>
-        <input name="username" onChange={handleChange} placeholder=" You Name" />
+    <div className="login-container">
+      <div className="login-card">
+        
+        <h1 className="login-title">Login</h1>
 
-        <label>Password</label>
-        <input name="password" type="password" onChange={handleChange}  placeholder=" Your Password"/>
+        <label className="login-label">Username</label>
+        <input
+          className="login-input"
+          name="username"
+          onChange={handleChange}
+          placeholder="Enter your username"
+        />
 
-        <button onClick={handleLogin}>Login</button>
+        <label className="login-label">Password</label>
+        <input
+          className="login-input"
+          name="password"
+          type="password"
+          onChange={handleChange}
+          placeholder="Enter your password"
+        />
 
-        <hr />
+        <button className="login-button" onClick={handleLogin}>
+          Login
+        </button>
 
-        <h3>Or Login with</h3>
+        <div className="login-divider"></div>
 
-        <div className="auth">
-          {/* 🔥 GOOGLE LOGIN */}
+        <p className="login-alt-text">Or continue with</p>
+
+        <div className="login-auth">
           <GoogleLogin
             onSuccess={async (res) => {
               try {
@@ -66,33 +80,17 @@ function Login() {
                 localStorage.setItem("access", response.data.access);
                 localStorage.setItem("refresh", response.data.refresh);
 
-                alert("Login successful ✅");
+                toast.success("Login successful");
                 navigate("/");
               } catch (err) {
                 console.log(err);
-                alert("Login failed ❌");
+                toast.error("Login failed ");
               }
             }}
           />
 
-          {/* 🔥 GITHUB LOGIN */}
-          <button
-            onClick={githubLogin}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              padding: "10px",
-              background: "#505d69",
-              color: "white",
-              border: "none",
-              borderRadius: "6px",
-              cursor: "pointer",
-              letterSpacing: "2px",
-              paddingLeft: "30px",
-            }}
-          >
-            <svg height="20" width="20" viewBox="0 0 16 16" fill="white">
+          <button className="github-button" onClick={githubLogin}>
+              <svg height="20" width="20" viewBox="0 0 16 16" fill="white">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 
               6.53 5.47 7.59.4.07.55-.17.55-.38
               0-.19-.01-.82-.01-1.49-2.01.37-2.53
@@ -111,14 +109,17 @@ function Login() {
               .21.15.46.55.38A8.013 8.013 0 0
               0 16 8c0-4.42-3.58-8-8-8z"/>
             </svg>
-
             Login with GitHub
           </button>
         </div>
 
-        <p>
-          Don't Have an Account <Link to="/Register">Register</Link>
+        <p className="login-footer">
+          Don’t have an account?{" "}
+          <Link to="/Register" className="login-link">
+            Register
+          </Link>
         </p>
+
       </div>
     </div>
   );

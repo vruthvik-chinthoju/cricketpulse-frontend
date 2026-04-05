@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./css/Register.css";
+import { toast } from "react-toastify";
 
 function Register() {
   const navigate = useNavigate();
@@ -19,28 +20,33 @@ function Register() {
   };
 
   const handleSubmit = async () => {
-
     if (!data.username || !data.email || !data.password) {
-      alert("All fields are required ⚠️");
+      toast.success("All fields are required ⚠️");
       return;
     }
 
     if (data.password.length < 6) {
-      alert("Password must be at least 6 characters 🔒");
+      toast.error("Password must be at least 6 characters 🔒");
       return;
     }
 
     setLoading(true);
 
     try {
-      await axios.post("https://cricketpulse-backend.onrender.com/api/register/", data);
+      await axios.post(
+        "https://cricketpulse-backend.onrender.com/api/register/",
+        data
+      );
 
-      alert("Registered successfully ✅");
+      toast.success("Registered successfully ✅");
 
-      const loginRes = await axios.post("https://cricketpulse-backend.onrender.com/api/token/", {
-        username: data.username,
-        password: data.password
-      });
+      const loginRes = await axios.post(
+        "https://cricketpulse-backend.onrender.com/api/token/",
+        {
+          username: data.username,
+          password: data.password
+        }
+      );
 
       localStorage.setItem("access", loginRes.data.access);
       localStorage.setItem("refresh", loginRes.data.refresh);
@@ -50,9 +56,9 @@ function Register() {
       console.log(err);
 
       if (err.response) {
-        alert(JSON.stringify(err.response.data));
+        toast.error(JSON.stringify(err.response.data));
       } else {
-        alert("Network error ❌");
+        toast.error("Network error ❌");
       }
     }
 
@@ -60,39 +66,51 @@ function Register() {
   };
 
   return (
-    <div className="main">
-      <h1>Register</h1>
+    <div className="register-container">
+      <div className="register-card">
 
-      <div className="box">
-        <label>Username :</label>
+        <h1 className="register-title">Create Account</h1>
+
+        <label className="register-label">Username</label>
         <input
+          className="register-input"
           name="username"
           onChange={handleChange}
-          placeholder="Enter Username"
+          placeholder="Enter username"
         />
 
-        <label>Email :</label>
+        <label className="register-label">Email</label>
         <input
+          className="register-input"
           name="email"
           onChange={handleChange}
-          placeholder="Enter Email"
+          placeholder="Enter email"
         />
 
-        <label>Password :</label>
+        <label className="register-label">Password</label>
         <input
-          name="password"
+          className="register-input"
           type="password"
+          name="password"
           onChange={handleChange}
-          placeholder="Enter Password"
+          placeholder="Enter password"
         />
 
-        <button onClick={handleSubmit} disabled={loading}>
+        <button
+          className="register-button"
+          onClick={handleSubmit}
+          disabled={loading}
+        >
           {loading ? "Registering..." : "Register"}
         </button>
 
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
+        <p className="register-footer">
+          Already have an account?{" "}
+          <Link to="/login" className="register-link">
+            Login
+          </Link>
         </p>
+
       </div>
     </div>
   );

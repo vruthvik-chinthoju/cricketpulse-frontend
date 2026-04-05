@@ -32,81 +32,16 @@ body {
 
 
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: #16a34a;
   border-radius: 5px;
+  height: 100px;
 }
 
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #16a34a;
+  background: #16171d;
 }
 
-/* 🔥 BACKDROP */
-.server-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* 🔥 POPUP BOX */
-.popup-box {
-  background: #0f172a;
-  padding: 30px 40px;
-  border-radius: 15px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  animation: fadeIn 0.4s ease;
-}
-
-.popup-box h2 {
-  color: #facc15;
-  font-family: "rac";
-  letter-spacing: 1px;
-}
-
-.popup-box p{
-  font-family: "rac";
-}
-
-.countdown {
-  font-size: 28px;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* 🔥 SPINNER */
-.spinner {
-  margin: 20px auto 0;
-  width: 40px;
-  height: 40px;
-  border: 4px solid #444;
-  border-top: 4px solid #facc15;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-/* animations */
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+body {
+  font-family: 'Poppins', sans-serif;
 }

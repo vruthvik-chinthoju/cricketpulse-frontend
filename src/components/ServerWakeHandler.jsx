@@ -5,21 +5,32 @@ import "./css/ServerWakeHandler.css";
 export default function ServerWakeHandler({ children }) {
   const [loading, setLoading] = useState(false);
   const [serverUp, setServerUp] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     let retryTimeout;
+    let progressInterval;
 
     const checkServer = async () => {
       try {
         await axios.get("https://cricketpulse-backend.onrender.com/api/matches/");
         setServerUp(true);
         setLoading(false);
+        setProgress(100);
+        clearInterval(progressInterval);
       } catch (err) {
-        console.log("Server sleeping... retrying");
         setLoading(true);
         retryTimeout = setTimeout(checkServer, 3000);
       }
     };
+
+    
+    progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) return prev; 
+        return prev + Math.random() * 10;
+      });
+    }, 800);
 
     const delay = setTimeout(() => {
       if (!serverUp) setLoading(true);
@@ -30,19 +41,30 @@ export default function ServerWakeHandler({ children }) {
     return () => {
       clearTimeout(retryTimeout);
       clearTimeout(delay);
+      clearInterval(progressInterval);
     };
   }, []);
 
   return (
     <>
-      {/* Popup */}
       {loading && !serverUp && (
-        <div className="server-overlay">
-          <div className="server-popup">
-            <h2>🚀 Waking up server...</h2>
-            <p>Please wait a few seconds (Render free tier)</p>
+        <div className="wake-overlay">
+          <div className="wake-popup">
+            <h2>Waking up CricketPulse AI</h2>
 
-            <div className="spinner"></div>
+            <p>{getMessage(progress)}</p>
+
+  
+            <div className="progress-container">
+              <div
+                className="progress-bar"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+
+            <span className="progress-text">
+              {Math.floor(progress)}%
+            </span>
           </div>
         </div>
       )}
@@ -50,4 +72,12 @@ export default function ServerWakeHandler({ children }) {
       {children}
     </>
   );
+}
+
+
+function getMessage(progress) {
+  if (progress < 30) return "Starting server...";
+  if (progress < 60) return "Loading AI models...";
+  if (progress < 90) return "Fetching match data...";
+  return "Almost ready...";
 }

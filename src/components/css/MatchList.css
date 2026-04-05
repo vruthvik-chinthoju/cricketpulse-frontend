@@ -11,36 +11,38 @@
     align-items: center;
     gap: 40px;
     padding: 30px 0;
-    background: #0f172a ;background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+    background: #dbdee4 ;
+    border-top: 1px solid black;
 }
 .match h2{
-    font-family: "rac";
+    font-family: "Poppins";
     font-size: 42px;
-    letter-spacing: 3px;
-    color: #ef4444;
+    letter-spacing: 0px;
+    color: #22C55E;
     /* text-shadow: 0 0 15px rgba(239,68,68,0.6); */
     
 }
-.all {
-    width: 50%;
-    background: rgba(30, 41, 59, 0.9);
-    border-radius: 25px;
+.match .all {
+    width: 40%;
+    border-radius:10px;
+    border: 1px solid black;
     padding: 30px;
     /* backdrop-filter: blur(10px); */
     font-family: "rac";
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 22px;
+    background: linear-gradient(135deg, #79d89c, #ffe0b2);
 }
 
 
 
 .all:hover {
     transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
 }
 
 b{
@@ -48,22 +50,22 @@ b{
     /* font-family: 20px; */
 }
 a{
-    color:white;
     text-decoration: dashed;
 }
 
-button{
+.buttons button{
     padding: 10px;
     border-radius: 5px;
     border: none;
     border: 1px solid black;
-    font-family: "rac";
-    background-color:turquoise;
+    font-family: "Poppins";
+    background-color:#22C55E;
+    color: black;
     cursor: pointer;
 }
-button:hover{
-    background-color:turquoise;
-    transform: scale(1.1);
+.buttons button:hover{
+    background:rgb(39, 133, 39);
+    transform: translateY(-2px);
     
 }
 .buttons {
@@ -72,15 +74,20 @@ button:hover{
     gap: 15px;
     justify-content: center;
 }
-.predict{
-    color: greenyellow;
+.all .predict{
+    font-family: "Poppins";
+    background-color: rgb(218, 218, 67);
     font-size: 20px;
+    color: #ef4444;
+    letter-spacing: 0px;
 }
 
-.team span {
+.all .team span {
+    font-family: "Poppins";
     font-size: 20px;
     text-align: center;
-    color: white;
+    color: black;
+    letter-spacing: 0px;
 }
 
 .teams {
@@ -99,13 +106,15 @@ button:hover{
     transition: 0.3s;
 }
 .team:hover {
-    transform: scale(1.08);
+    transform: scale(1);
 }
 
 .vs {
     font-size: 22px;
+    letter-spacing: 0px;
     font-weight: bold;
     color: #facc15;
+    white-space: nowrap;
 }
 
 .team img{
@@ -114,13 +123,16 @@ button:hover{
     object-fit: contain;
 }
 
-h2 {
+.all h2 {
+    font-family: "Poppins";
   font-size: 32px;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
 }
 
-p {
+.all p {
+    font-family: "Poppins";
   font-size: 16px;
+  letter-spacing: 0px;
 }
 
 .team span {
@@ -143,8 +155,8 @@ p {
 .countdown b{
     font-size: 18px;
     color: rgb(236, 89, 89);
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    letter-spacing: 2px;
+    font-family:"Poppins";
+    letter-spacing: 0px;
 }
 p {
     color: grey;   /* brighter */
@@ -182,6 +194,32 @@ button:hover {
     padding: 20px;
 }
 
+.today-match {
+    border: 2px solid #ff9800;
+    background: linear-gradient(135deg, #79d89c, #ffe0b2);
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.filter-buttons button{
+    border-radius: 5px;
+    font-family: "Poppins";
+    border: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.filter-buttons button:hover{
+    background: #1b8b46;
+    color: white;
+}
+
 
 .team img:hover{
     transform: scale(1.1);
@@ -202,7 +240,48 @@ button:hover {
 
 @media screen and (max-width:400px){
     .all .predict{
-        /* background-color: red; */
         width: 270px;
     }
+    .match .all{
+        width: 350px;
+        gap: 15px;
+    }
+    .teams{
+        padding-bottom: 30px;
+        border-bottom: 1px solid black;
+    }
+    .team img{
+        width: 60px;
+    }
+    .teams .team span{
+        font-size: 15px;
+    }
+    .all p{
+        font-size: 14px;
+    }
+    .all .predict{
+        padding: 10px;
+        font-size: 10px;
+        text-align: center;   
+    }
+    .buttons button{
+        padding:10px;
+        font-size:10px;
+        letter-spacing: 0px;
+    }
+    .filter-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .filter-buttons button{
+        padding: 10px;
+        width: 150px;
+    }
+    .match{
+        padding: 10px;
+        gap: 24px;
+
+    }
 }
+

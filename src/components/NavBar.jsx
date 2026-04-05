@@ -2,8 +2,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import "./css/NavBar.css";
-import logo from "../assets/logo.png";
-import stumps from "../assets/stumps.png"
+import stumps from "../assets/finallogo.png"
 
 
 function Navbar() {
@@ -39,7 +38,7 @@ function Navbar() {
       <div className="left">
         <img className="stumps" src={stumps} alt="" />
         <div className="logo">
-          <img className="lo" src={logo} alt="logo" />
+          <h1>Cricket-Pulse</h1>
         </div>
       </div>
 
@@ -70,7 +69,9 @@ function Navbar() {
           </>
         )}
       </div>
+      
     </nav>
+    
   );
 }
 

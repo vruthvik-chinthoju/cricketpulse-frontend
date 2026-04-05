@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./css/MyPredictions.css";
+import { toast } from "react-toastify";
 
 function MyPredictions() {
     const [data, setData] = useState([]);
@@ -50,13 +51,13 @@ function MyPredictions() {
                 <div key={p.id} className="prediction-row">
 
                     <div className="match-info">
-                        <p className="match-no">Match <b>{p.match_number}</b></p>
+                        <p className="match-no">Match {p.match_number} </p>
                         <p className="teams">{p.team1} vs {p.team2}</p>
                     </div>
 
                     <div className="prediction-info">
                         <p>Your Pick</p>
-                        <b>{p.predicted_team}</b>
+                        <p>{p.predicted_team}</p>
 
                         <p
                             className="status correct"
@@ -79,7 +80,7 @@ function MyPredictions() {
 
                     <div className="points">
                         <p>Points</p>
-                        <b>{p.points} 🪙</b>
+                        <p>{p.points} 🪙</p>
                     </div>
 
                 </div>

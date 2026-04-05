@@ -25,12 +25,46 @@ function Chatbot() {
 
     try {
 
-      const res = await fetch("https://cricketpulse-backend.onrender.com/api/chat-ai/",{
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
+
+      if (msg.includes("vs")) {
+
+        const parts = msg.split("vs");
+        const team1 = parts[0].trim().toUpperCase();
+        const team2 = parts[1].trim().toUpperCase();
+
+        const res = await fetch("https://cricketpulse-backend.onrender.com/api/predictmatch/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            home_team: team1,
+            away_team: team2,
+            toss_won: team1,
+            decision: "BOWL FIRST",
+            venue_name: "M.Chinnaswamy Stadium, Bengaluru"
+          })
+        });
+
+        const data = await res.json();
+
+        const botMsg = {
+          text: `🤖 AI Prediction: ${data.prediction} (${data.confidence}%)`,
+          sender: "bot"
+        };
+
+        setMessages(prev => [...prev, botMsg]);
+        setLoading(false);
+        return;
+      }
+
+
+      const res = await fetch("https://cricketpulse-backend.onrender.com/api/chat-ai/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify({ message: msg })
+        body: JSON.stringify({ message: msg })
       });
 
       const data = await res.json();
@@ -54,21 +88,17 @@ function Chatbot() {
     setLoading(false);
   };
 
-
   const quickOptions = [
-    "Team list",
-    "Team stats",
-    "Predict today match",
     "CSK vs RCB",
-    "Top players"
+    "MI vs KKR",
+    "Predict today match"
   ];
-
 
   return (
     <>
       {/* Floating Button */}
-      <div className="chatbot-btn" onClick={()=>setOpen(!open)}>
-        <img src="./cricket_ai.png" alt="AI"/>
+      <div className="chatbot-btn" onClick={() => setOpen(!open)}>
+        <img src="./cricket_ai.png" alt="AI" />
       </div>
 
 
@@ -79,21 +109,21 @@ function Chatbot() {
           {/* Header */}
           <div className="chat-header">
             <span>CricketPulse AI</span>
-            <button onClick={()=>setOpen(false)}>✖</button>
+            <button onClick={() => setOpen(false)}>✖</button>
           </div>
 
 
           {/* Chat Messages */}
           <div className="chat-body">
 
-            {messages.map((msg,i)=>(
+            {messages.map((msg, i) => (
               <div key={i} className={`chat-msg ${msg.sender}`}>
                 {msg.text}
               </div>
             ))}
 
             {loading && (
-              <div className="chat-msg bot">Typing...</div>
+              <div className="chat-msg bot">Thinking...</div>
             )}
 
           </div>
@@ -103,10 +133,10 @@ function Chatbot() {
 
           <div className="quick-options">
 
-            {quickOptions.map((opt,i)=>(
+            {quickOptions.map((opt, i) => (
               <button
                 key={i}
-                onClick={()=>sendMessage(opt)}
+                onClick={() => sendMessage(opt)}
               >
                 {opt}
               </button>
@@ -122,12 +152,12 @@ function Chatbot() {
             <input
               type="text"
               value={input}
-              placeholder="Ask something..."
-              onChange={(e)=>setInput(e.target.value)}
-              onKeyDown={(e)=> e.key==="Enter" && sendMessage()}
+              placeholder="Ask something like (eg:SRH VS MI)..."
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             />
 
-            <button onClick={()=>sendMessage()}>Send</button>
+            <button onClick={() => sendMessage()}>Send</button>
 
           </div>
 
