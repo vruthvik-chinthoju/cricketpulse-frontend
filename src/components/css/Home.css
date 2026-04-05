@@ -7,7 +7,7 @@ body {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 100dvh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
     url("https://i.pinimg.com/736x/87/03/27/870327fd5857c9e769d0e826fb5674c8.jpg");
